@@ -1,4 +1,6 @@
-namespace xDesign.Nutrition.Api.Model;
+using xDesign.Nutrition.Api.Domain.Enums;
+
+namespace xDesign.Nutrition.Api.Domain.Entity;
 
 public class Food
 {

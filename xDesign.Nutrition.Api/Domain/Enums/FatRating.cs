@@ -1,4 +1,4 @@
-namespace xDesign.Nutrition.Api.Model;
+namespace xDesign.Nutrition.Api.Domain.Enums;
 
 public enum FatRating {
     Low,

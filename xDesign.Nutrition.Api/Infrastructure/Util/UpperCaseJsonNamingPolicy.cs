@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace xDesign.Nutrition.Api.Util;
+namespace xDesign.Nutrition.Api.Infrastructure.Util;
 
 public class UpperCaseJsonNamingPolicy : JsonNamingPolicy
 {

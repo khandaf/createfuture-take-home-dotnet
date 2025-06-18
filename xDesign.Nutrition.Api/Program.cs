@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using xDesign.Nutrition.Api.Infrastructure.Util;
 using xDesign.Nutrition.Api.Services;
-using xDesign.Nutrition.Api.Util;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

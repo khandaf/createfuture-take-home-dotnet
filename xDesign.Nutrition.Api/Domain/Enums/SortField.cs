@@ -1,4 +1,4 @@
-namespace xDesign.Nutrition.Api.Dtos;
+namespace xDesign.Nutrition.Api.Domain.Enums;
 
 public enum SortField
 {

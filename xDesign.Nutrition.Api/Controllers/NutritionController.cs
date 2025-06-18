@@ -1,9 +1,10 @@
 using System.Net.Mime;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
-using xDesign.Nutrition.Api.Dtos;
-using xDesign.Nutrition.Api.Model;
 using xDesign.Nutrition.Api.Services;
+using xDesign.Nutrition.Api.Domain.Enums;
+using xDesign.Nutrition.Api.Applications.Dtos;
+using xDesign.Nutrition.Api.Domain.Entity;
 
 namespace xDesign.Nutrition.Api.Controllers;
 

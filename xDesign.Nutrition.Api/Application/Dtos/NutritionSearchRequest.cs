@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using xDesign.Nutrition.Api.Model;
+using xDesign.Nutrition.Api.Domain.Entity;
+using xDesign.Nutrition.Api.Domain.Enums;
 
-namespace xDesign.Nutrition.Api.Dtos;
+
+namespace xDesign.Nutrition.Api.Applications.Dtos;
 
 public record NutritionSearchRequest
 {

@@ -1,4 +1,4 @@
-namespace xDesign.Nutrition.Api.Util;
+namespace xDesign.Nutrition.Api.Infrastructure.Util;
 
 public static class CsvColumnHeadings
 {

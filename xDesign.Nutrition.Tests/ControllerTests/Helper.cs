@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using xDesign.Nutrition.Api.Model;
+using xDesign.Nutrition.Api.Domain.Entity;
 
 namespace xDesign.Nutrition.Tests.ControllerTests;
 
