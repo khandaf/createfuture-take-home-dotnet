@@ -11,9 +11,14 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(new UpperCaseJsonNamingPolicy()));
     });
 
-var csvFileName = builder.Configuration.GetSection("NutritionSearch").GetValue<string>("FileName");
-builder.Services.AddScoped(_ => new NutritionSearchService(csvFileName ?? throw new ArgumentNullException("csvFileName")));
+var config = builder.Configuration.GetSection("NutritionSearch");
+var format = config["Format"];
+var fileName = config["FileName"];
 
+var loader = NutritionDataLoaderFactory.Create(format ?? throw new ArgumentNullException("format"));
+builder.Services.AddSingleton(loader);
+builder.Services.AddSingleton(fileName ?? throw new ArgumentNullException("fileNAme"));
+builder.Services.AddScoped(_ => new NutritionSearchService(loader, fileName ?? throw new ArgumentNullException("fileName")));
 var app = builder.Build();
 
 app.MapControllers();

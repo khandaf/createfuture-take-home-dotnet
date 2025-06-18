@@ -3,8 +3,9 @@ using CsvHelper;
 using System.Globalization;
 using xDesign.Nutrition.Api.Domain.Entity;
 using xDesign.Nutrition.Api.Infrastructure.Util;
+using xDesign.Nutrition.Api.Domain.Interface;
 
-public class CsvNutritionDataLoader
+public class CsvNutritionDataLoader : INutritionDataLoader
 {
     private string? _fileName;
     private const string ExpectedServingSize = "100 g";

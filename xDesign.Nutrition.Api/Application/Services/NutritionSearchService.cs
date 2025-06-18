@@ -1,30 +1,34 @@
 using xDesign.Nutrition.Api.Applications.Dtos;
 using xDesign.Nutrition.Api.Domain.Entity;
 using xDesign.Nutrition.Api.Domain.Enums;
+using xDesign.Nutrition.Api.Domain.Interface;
 
 
 namespace xDesign.Nutrition.Api.Services;
 
 public class NutritionSearchService
 {
-    private readonly string _csvFileName;
-    private const int DefaultLimit = 10;
 
-    public NutritionSearchService(string csvFileName)
+    private const int DefaultLimit = 10;
+    private readonly IEnumerable<Food>? _items;
+    public NutritionSearchService(INutritionDataLoader loader, string fileName)
     {
-        _csvFileName = csvFileName;
+        _items = loader.Load(fileName).ToList();
     }
 
     public IEnumerable<Food> SearchNutrition(NutritionSearchRequest request)
     {
-        var filtered = new CsvNutritionDataLoader().Load(_csvFileName)
+        var filtered = _items?
             .Where(food =>
                 (!request.MinCalories.HasValue || food.Calories >= request.MinCalories.Value) &&
                 (!request.MaxCalories.HasValue || food.Calories <= request.MaxCalories.Value) &&
                 (!request.FatRating.HasValue || food.FatRating == request.FatRating.Value)
             );
 
-        var sortedList = SortFoods(filtered, request.SortCriteria).ToList();
+        // Ensure filtered is not null before passing to SortFoods
+        var sortedList = filtered != null
+            ? SortFoods(filtered, request.SortCriteria).ToList()
+            : new List<Food>();
 
         int limit = request.Limit > 0 ? request.Limit : DefaultLimit;
         return sortedList.Take(limit);
@@ -62,5 +66,6 @@ public class NutritionSearchService
         };
     }
 
-    
+
+
 }
