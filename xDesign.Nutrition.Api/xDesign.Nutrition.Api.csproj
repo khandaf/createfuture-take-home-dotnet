@@ -7,13 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="CsvHelper" Version="30.0.1" />
+      <None Remove="Resources\nutrition.csv" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Resources\nutrition.csv">
+      <EmbeddedResource Include="Resources\nutrition.csv">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="30.0.1" />
     </ItemGroup>
     
 </Project>

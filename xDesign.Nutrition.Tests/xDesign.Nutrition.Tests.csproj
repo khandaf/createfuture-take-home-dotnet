@@ -9,6 +9,48 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Resources\all-foods-exactly-300-cals.json" />
+      <None Remove="Resources\all-foods.json" />
+      <None Remove="Resources\all-low-fat-foods.json" />
+      <None Remove="Resources\first-five-low-fat-ordered-by-calories-desc-then-name-asc.json" />
+      <None Remove="Resources\high-fat-max-cals-200-sort-by-cals-asc.json" />
+      <None Remove="Resources\high-fat-over-300-cals.json" />
+      <None Remove="Resources\high-fat-sort-by-cals-desc.json" />
+      <None Remove="Resources\low-fat-400-cals-or-more-sort-by-cals-desc.json" />
+      <None Remove="Resources\low-fat-under-300-cals.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\all-foods-exactly-300-cals.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\all-foods.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\all-low-fat-foods.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\first-five-low-fat-ordered-by-calories-desc-then-name-asc.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\high-fat-max-cals-200-sort-by-cals-asc.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\high-fat-over-300-cals.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\high-fat-sort-by-cals-desc.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\low-fat-400-cals-or-more-sort-by-cals-desc.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\low-fat-under-300-cals.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.11" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
@@ -24,41 +66,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Resources\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\xDesign.Nutrition.Api\xDesign.Nutrition.Api.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="Resources\all-foods.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\all-foods-exactly-300-cals.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\all-low-fat-foods.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\first-five-low-fat-ordered-by-calories-desc-then-name-asc.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\high-fat-max-cals-200-sort-by-cals-asc.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\high-fat-over-300-cals.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\high-fat-sort-by-cals-desc.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\low-fat-400-cals-or-more-sort-by-cals-desc.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\low-fat-under-300-cals.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 
 </Project>

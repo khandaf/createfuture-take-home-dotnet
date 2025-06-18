@@ -20,10 +20,17 @@ public class NutritionSearchService
     public IEnumerable<Food> SearchNutrition(NutritionSearchRequest request)
     {
         var unsorted = LoadFoodsFromCsvFile()
-            .Where(food => true)
-            .Take(request.Limit);
+            .Where(food =>
+                (!request.MinCalories.HasValue || food.Calories >= request.MinCalories.Value) &&
+                (!request.MaxCalories.HasValue || food.Calories <= request.MaxCalories.Value) &&
+                (!request.FatRating.HasValue || food.FatRating == request.FatRating.Value)
+            );
 
-        return SortFoods(unsorted, request.SortCriteria).ToList();
+        var sortedList = unsorted != null
+           ? SortFoods(unsorted, request.SortCriteria).ToList()
+           : new List<Food>();
+
+        return sortedList.Take(request.Limit);
     }
 
     private static IEnumerable<Food> SortFoods(IEnumerable<Food> unsorted, IList<Sort> requestSortCriteria)
