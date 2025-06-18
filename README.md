@@ -1,10 +1,44 @@
 # Nutrition Data
 
-A simple web service which supports searching and sorting nutrition data.  Query results are returned as a list of foods and drinks, formatted as a JSON document.
+A modular, extensible ASP.NET Core Web API for searching and filtering nutrition data from various sources (CSV, JSON, XML).  
+Built with clean architecture principles for maintainability and scalability.
 
 Data comes from https://www.kaggle.com/datasets/trolukovich/nutritional-values-for-common-foods-and-products?resource=download
 and is available under the [CCO: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/) license.
 
+---
+
+## Features
+
+- Search and filter foods by calories, fat rating, and more.
+- Supports multiple data formats (CSV, JSON, XML) via pluggable loaders.
+- Clean separation of concerns: Domain, Application, Infrastructure, API.
+- Easily extendable for new data sources or business rules.
+- Customizable JSON enum serialization (upper-case).
+
+---
+
+## Project Structure
+
+xDesign.Nutrition.Api/
+├── Api/                # Controllers and presentation logic
+├── Application/        # Services, DTOs, interfaces
+├── Domain/             # Entities, enums, domain interfaces
+├── Infrastructure/     # Data loaders, utilities
+├── appsettings.json    # Configuration
+└── Program.cs          # Application entry point
+
+---
+
+## Configuration
+* You will need .NET 7 to compile the project.
+* Edit `appsettings.json` to specify the nutrition data source:
+  "NutritionSearch": {
+    "Format": "csv",         // Supported: "csv", "json", "xml"
+    "FileName": "data.csv"   // Path to your data file
+  }
+
+---
 
 ## Querying the data
 A number of query parameters are available to customize the search criteria. All query parameters are optional and
@@ -19,15 +53,6 @@ may be applied in any order. The full list of query parameters is:
   and calories, specify two sort parameters in the query string, one for each field. The order of the fields
   determines the final order of the items, e.g. if sorting by calories descending and name ascending, the second sort
   parameter is only used when the calories are equal.
+---
 
-Test Change
-## Notes
-* You will need .NET 7 to compile the project.
-* Tests are split into two files:
-   -   xDesign.Nutrition.Tests/ControllerTests/
-       - NutritionControllerFilterTests.cs should pass on completion of step 1
-       - NutritionControllerAdditionalTests.cs are the target of task 4
-* The test code and test fixtures (JSON files) contain no errors.
-* There are no errors in the CSV file of nutrition data.
-* Please contact [talent.team@xdesign.com](mailto:talent.team@xdesign.com) if you have any questions, and we'll respond within normal business hours (Mon-Fri, 09:00 - 17:00).
 
